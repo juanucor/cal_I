@@ -1,0 +1,95 @@
+<!DOCTYPE html><html>
+<head>
+  <title>Cálculadora 2</title>
+  <meta charset="UTF-8">
+    
+    <style type="text/css">
+        #calculadora {
+            background-color:burlywood;
+            box-shadow: 2px 7px 5px gray;
+            padding: 0.5em;
+            margin: 20px;
+            width: 200px;
+        }
+    
+    </style>
+    
+    <script type="text/javascript">
+        var num, acc=0, op="";
+        
+         function inic() {num = document.getElementById("n1");}
+        
+         function mas() {acc = num.value; op = "+";}
+        
+         function menos() {acc = num.value; op = "-";}
+        
+         function producto() {acc = num.value; op = "*";}
+        
+         function division() {acc = num.value; op = "/";}
+        
+         function potencia() {acc = num.value; op = "pot";}
+        
+         function calcular() {
+             
+             if (op === "+") {num.value = (+acc + +num.value);}
+             if (op === "-") {num.value = (+acc - +num.value);}
+             if (op === "*") {num.value = (+acc * +num.value);}
+             if (op === "/") {num.value = (+acc / +num.value);}
+             if (op === "pot") {num.value = Math.pow(+acc,+num.value);}
+             
+         }
+        
+        
+        function vaciar() {
+            num.value = "";
+        }
+        
+        function cuadrado() {
+            num.value = num.value * num.value;
+        }
+        
+        function inverso() {
+            num.value = 1 / num.value;
+        }
+        
+        function raiz() {
+            num.value = Math.sqrt(num.value);
+        }
+        
+        function entera() {
+            if ( num < 0) {
+                num.value = Math.ceil(num.value);
+            }
+            else {
+                num.value = Math.floor(num.value);
+            }
+        }
+        
+       
+  
+    </script>
+</head>
+<body onload="inic()">
+  <h2>Buenos días, bienvenido a la cálculadora de Juan Miguel Núñez</h2>
+  <p>
+  <div id="calculadora">
+    <p>
+    <input type="text" id="n1" onclick="vaciar()">
+      <p>
+    <button onclick="cuadrado()">x<sup>2</sup></button>
+    <button onclick="inverso()">1/x</button>
+    <button onclick="raiz()">raiz</button>
+    <button onclick="entera()">entera</button>
+     <p>
+    <button onclick="mas()">+</button>
+    <button onclick="menos()">-</button>
+    <button onclick="producto()">*</button>
+    <button onclick="division()">/</button>
+    <button onclick="potencia()">x<sup>y</sup></button>
+    <p>
+    <button onclick="calcular()">calcular</button>
+    <p>
+  </div>
+
+</body>
+</html>
